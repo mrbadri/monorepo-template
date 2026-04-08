@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+.next
+.turbo
+dist
+out
+build
+
+# Git
+.git
+.gitignore
+
+# IDE & config
+.idea
+.vscode
+*.swp
+*.swo
+
+# Logs & temp
+*.log
+npm-debug.log*
+.npm
+.env.local
+.env.*.local
+
+# Test & coverage
+coverage
+.nyc_output
+*.test.*
+*.spec.*
+
+# Misc
+README.md
+*.md
+openspec
+.cursor

@@ -1,0 +1,25 @@
+name: web-monorepo-dev
+
+services:
+  web:
+    build:
+      context: ../..
+      dockerfile: apps/web/Dockerfile
+      target: dev
+    image: web-monorepo-web-dev:latest
+    working_dir: /app
+    ports:
+      - "127.0.0.1:${WEB_PORT:-10100}:10001"
+    volumes:
+      - ../../:/app
+      - dev-pnpm-store:/pnpm-store
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=development
+    command: sh -c "pnpm install --store-dir /pnpm-store --no-frozen-lockfile && pnpm dev -- --port 10001"
+    stdin_open: true
+    tty: true
+
+volumes:
+  dev-pnpm-store:

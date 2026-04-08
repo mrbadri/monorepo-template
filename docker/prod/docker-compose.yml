@@ -1,0 +1,12 @@
+name: web-monorepo-prod
+
+services:
+  web:
+    build:
+      context: ../..
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "127.0.0.1:${WEB_PORT:-10100}:10001"
+    image: web-monorepo-web:latest
+    container_name: web-monorepo-web
+    restart: unless-stopped
